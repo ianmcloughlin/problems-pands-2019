@@ -74,6 +74,11 @@
   \definecolor{gmitred}{RGB}{220,20,60}
   \definecolor{gmitgrey}{RGB}{67,67,67}
 
+  % Set minted up.
+  \usemintedstyle{manni}
+  \setminted{baselinestretch=1.2, bgcolor=gmitgrey!10}
+
+
   %%%%%% CHANGE
   % Name of the module.
   \newcommand{\modulename}{Programming and Scripting}
@@ -141,13 +146,13 @@ However, in borderline cases or exceptional circumstances work done after the de
   \begin{center}
     \begin{tabular}{llp{8.4cm}}
       \toprule
-      25\% & \textbf{Research} & Investigation of each problem and its solution, as evidenced by clean, efficient solutions. \\
+      25\% & \textbf{Research} & Investigation of each problem and its solution, as evidenced by clean and well-commented code. \\
       \midrule
-      25\% & \textbf{Development} & Clear, well-written, and efficient code with appropriate comments. \\
+      25\% & \textbf{Development} & Clear, well-written, and efficient code. \\
       \midrule
       25\% & \textbf{Consistency} & Good planning and pragmatic attitude to work as evidenced by commit history. \\
       \midrule
-      25\% & \textbf{Documentation} & Concise descriptions of solutions. \\
+      25\% & \textbf{Documentation} & Concise descriptions of solutions in comments and README. \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -179,10 +184,13 @@ However, in borderline cases or exceptional circumstances work done after the de
 
 \subsection*{Questions}
   
+  For some some of the following questions, examples of running the program are given in grey.
+  Lines beginning with a dollar sign are typed at the command line, and the other lines are part of the programs.
+
   \begin{questions}
 
     \question
-    Write a program that takes any positive integer and outputs the sum of all numbers between 1 and that number.
+    Write a program that asks the user to input any positive integer and outputs the sum of all numbers between one and that number.
     \begin{minted}{bash}
 $ python sumupto.py
 Please enter a positive integer: 10
@@ -206,22 +214,25 @@ No - today does not begin with a T.
       \question
       Write a program that prints all numbers between 1,000 and 10,000 that are divisible by 6 but not 12.
       \begin{minted}{bash}
-  $ python divisors.py
-  1002
-  1014
-  1026
-  etc
-  9990
+$ python divisors.py
+1002
+1014
+1026
+etc
+9990
       \end{minted}
 
     \question
-      Write a program that asks the user ot input any positive integer and outputs the successive values of the following calculation performed on it up to and including when the value becomes 1.
-      The calculation is: if the number is even, divide it by two, if it is odd then multiply it by three and add one.
+      Write a program that asks the user to input any positive integer and outputs the successive values of the following calculation.
+      At each step calculate the next value by taking the current value and, if it is even, divide it by two, but if it is odd, multiply it by three and add one.
+      Have the program end if the current value is one.
       \begin{minted}{bash}
 $ python collatz.py
 Please enter a positive integer: 10
 10 5 16 8 4 2 1
       \end{minted}
+
+    \newpage
 
 
     \question
@@ -257,6 +268,15 @@ Monday, January 10th 2019 at 1:15pm
 
     \question
     Write a program that reads in a text file and outputs every second line.
+    The program should take the filename from an argument on the command line.
+    \begin{minted}{bash}
+$ python second.py moby-dick.txt
+Title:  Moby Dick; or The Whale
+CHAPTER 1
+Call me Ishmael.  Some years ago--never mind how long
+particular to interest me on shore, I thought I would sail about a
+...
+    \end{minted}
 
     \question
     Write a program that displays a plot of the functions $x$, $x^2$ and $2^x$ in the range $[0, 4]$.
